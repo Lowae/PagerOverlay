@@ -22,10 +22,10 @@ class PageOverlayView constructor(context: Context) : View(context) {
 
 
     override fun onDraw(canvas: Canvas?) {
-        super.onDraw(canvas)
-        val bitmap = overlay ?: return
+        val overlay = overlay ?: return super.onDraw(canvas)
         canvas?.withClip(left, top, width - currentPositionOffsetPx, bottom) {
-            drawBitmap(bitmap, 0f, 0f, null)
+            drawBitmap(overlay, 0f, 0f, null)
         }
+
     }
 }
